@@ -1,8 +1,8 @@
 import argparse
-# import select
 import sys
 
 from .arnoldc import parse
+from .__version__ import VERSION
 
 
 def example():
@@ -22,6 +22,15 @@ def main(args=None):
             args = args + ['example.arnoldc']
         parser = argparse.ArgumentParser()
         parser.add_argument('filename', nargs='?')
+        parser.add_argument(
+            '--version',
+            action='version',
+            help='print version information',
+            version='%(prog)s {} for Python {}'.format(
+                VERSION,
+                sys.version.split('\n')[0],
+            ),
+        )
         parser.add_argument(
             '-c',
             metavar='cmd',
