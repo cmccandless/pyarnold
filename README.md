@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/cmccandless/pyarnold.svg?branch=master)](https://travis-ci.com/cmccandless/pyarnold)[![PyPI version](https://badge.fury.io/py/pyarnold.svg)](https://badge.fury.io/py/pyarnold)
+
 # pyarnold
 
 Python implementation of [ArnoldC](https://github.com/lhartikk/ArnoldC)
