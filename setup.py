@@ -9,7 +9,7 @@ if __name__ == '__main__':
         long_description = fh.read()
 
     setuptools.setup(
-        name="arnoldc",
+        name="pyarnold",
         version=VERSION,
         author="Corey McCandless",
         author_email="crm1994@gmail.com",
@@ -27,7 +27,7 @@ if __name__ == '__main__':
         ),
         entry_points={
             'console_scripts': [
-                'arnoldc = arnoldc.__main__:main'
+                'pyarnold = arnoldc.__main__:main'
             ],
         },
         install_requires=[],
