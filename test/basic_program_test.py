@@ -1,3 +1,6 @@
+import builtins
+import mock
+
 from arnoldc import parse, ArnoldCParseException
 from .arnoldc_test import ArnoldCTest
 
@@ -51,6 +54,17 @@ class BasicTest(ArnoldCTest):
         """
         ret, out, err = self.run_prog(text)
         self.assertEqual(out, '1')
+
+    def test_read_integer(self):
+        text = """IT'S SHOWTIME
+        HEY CHRISTMAS TREE x
+        I WANT TO ASK YOU A BUNCH OF QUESTIONS AND I WANT TO HAVE THEM ANSWERED IMMEDIATELY
+        TALK TO THE HAND x
+        YOU HAVE BEEN TERMINATED
+        """
+        with mock.patch.object(builtins, 'input', lambda: '2'):
+            ret, out, err = self.run_prog(text)
+        self.assertEqual(out, '2')
 
 
 if __name__ == '__main__':

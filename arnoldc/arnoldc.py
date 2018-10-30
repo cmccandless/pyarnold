@@ -75,7 +75,7 @@ class KWD(SpecialEnum):
         if keyword in {
             cls.BEGIN_MAIN, cls.ELSE, cls.END_ASSIGN_VARIABLE, cls.END_IF,
             cls.END_MAIN, cls.END_METHOD_DECLARATION, cls.NON_VOID_METHOD,
-            cls.PARSE_ERROR, cls.END_WHILE,
+            cls.PARSE_ERROR, cls.END_WHILE, cls.READ_INTEGER
         }:
             return 0
         return 1
@@ -239,6 +239,12 @@ class Statement(object):
             if not is_integer(value):
                 value = vars[value]
             return value
+        elif self.keyword == KWD.READ_INTEGER:
+            value = input()
+            if not is_integer(value):
+                raise TypeError('input must be an integer')
+            var_name = stack.pop()
+            vars[var_name] = int(value)
         else:
             logger.error('{} | {}'.format(
                 repr(stack),
