@@ -58,10 +58,13 @@ class BasicTest(ArnoldCTest):
     def test_read_integer(self):
         text = """IT'S SHOWTIME
         HEY CHRISTMAS TREE x
-        I WANT TO ASK YOU A BUNCH OF QUESTIONS AND I WANT TO HAVE THEM ANSWERED IMMEDIATELY
+        {}
         TALK TO THE HAND x
         YOU HAVE BEEN TERMINATED
-        """
+        """.format(
+            'I WANT TO ASK YOU A BUNCH OF QUESTIONS AND I WANT TO HAVE THEM '
+            'ANSWERED IMMEDIATELY'
+        )
         with mock.patch.object(builtins, 'input', lambda: '2'):
             ret, out, err = self.run_prog(text)
         self.assertEqual(out, '2')

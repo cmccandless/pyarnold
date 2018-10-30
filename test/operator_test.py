@@ -2,7 +2,7 @@ from ddt import ddt, data, unpack
 from inspect import isclass
 import operator
 
-from arnoldc.arnoldc import KWD
+from arnoldc.lang.keywords import KWD
 from .arnoldc_test import ArnoldCTest
 
 OPERATOR_CASES = [
